@@ -5,6 +5,7 @@ ruby '2.5.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.0'
+gem 'bcrypt'
 # bootstrap
 gem 'bootstrap-will_paginate', '1.0.0'
 # Use Puma as the app server
