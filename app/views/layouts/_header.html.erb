@@ -3,9 +3,26 @@
     <%= link_to "示例应用", root_path, id: "logo" %>
       <nav>
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "首页", root_path%></li>
+          <li><%= link_to "首页", root_path %></li>
           <li><%= link_to "帮助", help_path %></li>
-          <li><%= link_to "登陆", signup_path %></li>
+	  <% if logged_in? %>
+            <li><%= link_to "用户列表", '#' %></li>
+	    <li class="dropdown">
+	      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+		账户<b class="caret"></b>
+	      </a>
+	      <ul class="dropdown-menu">
+		<li><%= link_to "资料", current_user %></li>		      
+		<li><%= link_to "设置", '#' %></li>		      
+		<li class="divider"></li>		      
+		<li>
+		  <%= link_to "登出", logout_path, method: :delete %>
+		</li>		      
+	      </ul>
+	    </li>
+          <% else %>
+            <li><%= link_to "登陆", login_path %></li>
+	  <% end %>
         </ul>
       </nav>
   </div>
